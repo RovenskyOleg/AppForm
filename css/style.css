@@ -1,0 +1,97 @@
+body {
+  background: #FFFFF0;
+  padding: 0px;
+  margin: 0px;
+}
+
+input {
+    width: 150px;
+}
+
+.main {
+    margin: 20px 50px 20px 50px;
+    border: 3px solid black;
+    border-radius: 15px;
+    width: 440px;
+    height: 250px;
+}
+
+#board {
+    border: 1px solid green;
+    margin: 15px 30px 15px 30px;
+    position: relative;
+    height: 180px;
+}
+
+#tab_name, #tab_contact, #tab_personal {
+    width: 150px;
+    height: 58px;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#inputFormName {
+    top: 7px;
+    left: 170px;
+    position: absolute;
+}
+
+
+#inputFormContacts {
+    position: absolute;
+    top: -15px;
+    left: 170px;
+}
+
+#inputFormPersonal {
+    position: absolute;
+    top: 7px;
+    left: 170px;
+}
+
+#view {
+    position: relative;
+}
+
+.list {
+    top: 20px;
+    left: 100px;
+    line-height: 1.5;
+    list-style-type: none;
+    margin: 20px 10px 0px 100px; 
+}
+
+.user_date {
+    position: absolute;
+    left: 190px;
+}
+
+.hiden {
+    display: none;
+}
+
+#edit, #save {
+    position: absolute;
+    font-size: 14px;
+    top: 192px;
+    right: 50px;
+    height: 30px;
+    width: 100px;
+}
+
+#save {
+    right: 160px;
+}
+
+#footer {
+    position: relative;
+}
+
+#preview {
+    position: absolute;
+    font-size: 14px;
+    top: 0px;
+    right: 50px;
+    height: 30px;
+    width: 150px;
+}

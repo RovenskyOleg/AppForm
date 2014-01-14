@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href="css/style.css">
+        <script src = "js/person.js"></script>
+        <script src = "js/user_form.js"></script>
+        <script src = "js/main.js"></script>
+    </head>
+
+    <body>
+        <div class = "main">
+            <div id = "board">
+                <div id = "tab_name">
+                    <p>Name</p>
+                </div>
+
+                <div id = "inputFormName">
+                    <p>Name<br />
+                    <input id = "first_name" type = "text" />
+                    </p>
+                    <p>Last Name<br />
+                    <input id = "last_name" type = "text" />
+                    </p>
+                </div>
+
+                <div id = "tab_contact">
+                    <p>Contacts</p>
+                </div>
+
+                <div id = "inputFormContacts">
+                    <p>Skype<br />
+                    <input id = "skype" type = "text" />
+                    </p>
+                    <p>Email<br />
+                    <input id = "email" type = "text" />
+                    </p>
+                    <p>Phone<br />
+                    <input id = "phone" type = "text" />
+                    </p>
+                </div>
+
+                <div id = "tab_personal">
+                    <p>Personal</p>
+                </div>
+
+                <div id = "inputFormPersonal">
+                    <p>Age<br />
+                    <input id = "age" type = "text" />
+                    </p>
+                    <p>Sex<br />
+                    
+                    <select id = "sex">
+                        <option value = "M">Male</option>
+                        <option value = "F">Female</option>
+                    </select>
+                    </p>
+                </div>
+            </div>
+
+            <div id = "view">
+                <div class = "list">
+                    <li>
+                        Name:
+                        <span id = "persone_name" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Last Name:
+                        <span id = "persone_last_name" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Skype:
+                        <span id = "persone_skype" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Email:
+                        <span id = "persone_email" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Phone:
+                        <span id = "persone_phone" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Age:
+                        <span id = "persone_age" class = "user_date"></span>
+                    </li>
+                    <li>
+                        Sex:
+                        <span id = "persone_sex" class = "user_date"></span>
+                    </li>
+                </div>
+              
+                <div id = "button_form">
+                    <button id = "save">
+                        Save
+                    </button>
+
+                    <button id = "edit">
+                        Edit
+                    </button>
+                </div>
+            </div>
+
+            <div id = "footer">
+                <button id = "preview">
+                    Preview
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
