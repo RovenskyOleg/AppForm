@@ -62,7 +62,6 @@ function ShowBlock(block_close_input, block_open_preview) {
         inputToPerson();
 
         for(key_val in attributeJSON) {
-            console.log(attributeJSON[key_val]);
             person.get(document.getElementById("persone_" + key_val).innerHTML = person.get(key_val));
         }
         // document.getElementById("persone_first_name").innerHTML = person.get("first_name");
