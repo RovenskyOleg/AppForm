@@ -6,9 +6,12 @@ function ShowBlock(block_close_input, block_open_preview) {
         tab_contact = document.getElementById("inputFormContacts"),
         tab_personal = document.getElementById("inputFormPersonal"),
         person = new Persone(),
-        
+
         key_person = ["first_name", "last_name", "skype", "email", "phone", "age", "sex"],
-        key;
+        key,
+
+        attributeJSON = person.getJSON(),
+        key_val;
 
     tab_contact.classList.add("hiden");
     tab_personal.classList.add("hiden");
@@ -58,13 +61,17 @@ function ShowBlock(block_close_input, block_open_preview) {
 
         inputToPerson();
 
-        document.getElementById("persone_name").innerHTML = person.get("first_name");
-        document.getElementById("persone_last_name").innerHTML = person.get("last_name");
-        document.getElementById("persone_skype").innerHTML = person.get("skype");
-        document.getElementById("persone_email").innerHTML = person.get("email");
-        document.getElementById("persone_phone").innerHTML = person.get("phone");
-        document.getElementById("persone_age").innerHTML = person.get("age");
-        document.getElementById("persone_sex").innerHTML = person.get("sex");
+        for(key_val in attributeJSON) {
+            console.log(attributeJSON[key_val]);
+            person.get(document.getElementById("persone_" + key_val).innerHTML = person.get(key_val));
+        }
+        // document.getElementById("persone_first_name").innerHTML = person.get("first_name");
+        // document.getElementById("persone_last_name").innerHTML = person.get("last_name");
+        // document.getElementById("persone_skype").innerHTML = person.get("skype");
+        // document.getElementById("persone_email").innerHTML = person.get("email");
+        // document.getElementById("persone_phone").innerHTML = person.get("phone");
+        // document.getElementById("persone_age").innerHTML = person.get("age");
+        // document.getElementById("persone_sex").innerHTML = person.get("sex");
     }
 
     function editForm() {

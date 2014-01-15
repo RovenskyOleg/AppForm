@@ -11,5 +11,9 @@ function Persone() {
         return attribute[key];
     };
 
+    this.getJSON = function() {
+        return attribute;
+    };
+
     return this;
 }
