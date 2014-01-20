@@ -2,86 +2,78 @@
 
 function ShowBlock(block_close_input, block_open_preview) {
 
-    var tab_name = document.getElementById("inputFormName"),
-        tab_contact = document.getElementById("inputFormContacts"),
-        tab_personal = document.getElementById("inputFormPersonal"),
-        person = new Persone(),
+    var person = new Persone(),
 
         key_person = ["first_name", "last_name", "skype", "email", "phone", "age", "sex"],
         key,
 
         attributeJSON = person.getJSON(),
-        key_val;
 
-    tab_contact.classList.add("hiden");
-    tab_personal.classList.add("hiden");
+        templateText,
+        view_form;
 
-    block_open_preview.classList.add("hiden");
+    $("#inputFormContacts").addClass("hiden");
+    $("#inputFormPersonal").addClass("hiden");
+
+    $("#" + block_open_preview).addClass("hiden");
 
     function clickName() {
-        tab_contact.classList.add("hiden");
-        tab_personal.classList.add("hiden");
-        tab_name.classList.remove("hiden");
+        $("#inputFormContacts").addClass("hiden");
+        $("#inputFormPersonal").addClass("hiden");
+        $("#inputFormName").removeClass("hiden");
     }
 
     function clickContacts() {
-        tab_name.classList.add("hiden");
-        tab_contact.classList.remove("hiden");
-        tab_personal.classList.add("hiden");
+        $("#inputFormName").addClass("hiden");
+        $("#inputFormContacts").removeClass("hiden");
+        $("#inputFormPersonal").addClass("hiden");
     }
 
     function clickPersonal() {
-        tab_name.classList.add("hiden");
-        tab_contact.classList.add("hiden");
-        tab_personal.classList.remove("hiden");
+        $("#inputFormName").addClass("hiden");
+        $("#inputFormContacts").addClass("hiden");
+        $("#inputFormPersonal").removeClass("hiden");
     }
 
-    document.getElementById("tab_name").addEventListener("click", clickName, false);
-    document.getElementById("tab_contact").addEventListener("click", clickContacts, false);
-    document.getElementById("tab_personal").addEventListener("click", clickPersonal, false);
+    $("#tab_name").on("click", clickName);
+    $("#tab_contact").on("click", clickContacts);
+    $("#tab_personal").on("click", clickPersonal);
 
     function inputToPerson() {
+        // for(key in key_person) {
+        //     person.set(key_person[key], $("#" + key_person[key]).val());
+        // }
+        $.each(key_person, function(key){
+            person.set(key_person[key], $("#" + key_person[key]).val());
+            console.log(key_person[key]);
+        });
         
-        // person.set("first_name", document.getElementById("first_name").value);
-        // person.set("last_name", document.getElementById("last_name").value);
-        // person.set("skype", document.getElementById("skype").value);
-        // person.set("email", document.getElementById("email").value);
-        // person.set("phone", document.getElementById("phone").value);
-        // person.set("age", document.getElementById("age").value);
-        // person.set("sex", document.getElementById("sex").value);
-        for(key in key_person) {
-            person.set(key_person[key], document.getElementById(key_person[key]).value);
-        }
     }
 
     function show() {
-        document.getElementById("preview").classList.add("hiden");
-        block_close_input.classList.add("hiden");
-        block_open_preview.classList.remove("hiden");
+        $("#preview").addClass("hiden");
+        $("#" + block_close_input).addClass("hiden");
+        $("#" + block_open_preview).removeClass("hiden");
 
         inputToPerson();
 
-        for(key_val in attributeJSON) {
-            person.get(document.getElementById("persone_" + key_val).innerHTML = person.get(key_val));
-        }
-        // document.getElementById("persone_first_name").innerHTML = person.get("first_name");
-        // document.getElementById("persone_last_name").innerHTML = person.get("last_name");
-        // document.getElementById("persone_skype").innerHTML = person.get("skype");
-        // document.getElementById("persone_email").innerHTML = person.get("email");
-        // document.getElementById("persone_phone").innerHTML = person.get("phone");
-        // document.getElementById("persone_age").innerHTML = person.get("age");
-        // document.getElementById("persone_sex").innerHTML = person.get("sex");
+        // for(key_val in attributeJSON) {
+        //     person.get(document.getElementById("persone_" + key_val).innerHTML = attributeJSON[key_val]);
+        // }
+        templateText = $("#list").html(),
+        view_form = _.template(templateText,attributeJSON);
+        $("#list_view").html(view_form);
     }
 
     function editForm() {
-        document.getElementById("preview").classList.remove("hiden");
-        block_close_input.classList.remove("hiden");
-        block_open_preview.classList.add("hiden");
+        $("#preview").removeClass("hiden");
+        $("#" + block_close_input).removeClass("hiden");
+        $("#" + block_open_preview).addClass("hiden");
     }
 
-    document.getElementById("preview").addEventListener ("click", show, false);
+    $("#preview").on("click", show);
 
-    document.getElementById("edit").addEventListener ("click", editForm, false);
+    $("#edit").on("click", editForm);
 
     return this;
 }

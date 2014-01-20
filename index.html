@@ -2,9 +2,13 @@
 <html>
     <head>
         <link rel = "stylesheet" href="css/style.css">
+
+        
         <script src = "js/person.js"></script>
         <script src = "js/user_form.js"></script>
         <script src = "js/main.js"></script>
+        <script src = "js/jquery1.10.2.js"></script>
+        <script src = "js/underscore.js"></script>
     </head>
 
     <body>
@@ -58,36 +62,38 @@
             </div>
 
             <div id = "view">
-                <div class = "list">
+                <div id="list_view"></div>
+
+                <script id="list" type="text/template">
                     <li>
                         Name:
-                        <span id = "persone_first_name" class = "user_date"></span>
+                        <span class = "user_date"><%= first_name %></span>
                     </li>
                     <li>
                         Last Name:
-                        <span id = "persone_last_name" class = "user_date"></span>
+                        <span class = "user_date"><%= last_name %></span>
                     </li>
                     <li>
                         Skype:
-                        <span id = "persone_skype" class = "user_date"></span>
+                        <span class = "user_date"><%= skype %></span>
                     </li>
                     <li>
                         Email:
-                        <span id = "persone_email" class = "user_date"></span>
+                        <span class = "user_date"><%= email %></span>
                     </li>
                     <li>
                         Phone:
-                        <span id = "persone_phone" class = "user_date"></span>
+                        <span class = "user_date"><%= phone %></span>
                     </li>
                     <li>
                         Age:
-                        <span id = "persone_age" class = "user_date"></span>
+                        <span class = "user_date"><%= age %></span>
                     </li>
                     <li>
                         Sex:
-                        <span id = "persone_sex" class = "user_date"></span>
+                        <span class = "user_date"><%= sex %></span>
                     </li>
-                </div>
+                </script>
               
                 <div id = "button_form">
                     <button id = "save">
